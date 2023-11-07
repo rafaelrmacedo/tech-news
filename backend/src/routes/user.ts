@@ -16,8 +16,8 @@ try {
 }
 
 export async function userRoutes(server: FastifyInstance) {
-    server.get('/user', async () => {
-        const query = 'SELECT * FROM usuarios';
+    server.get('/users', async () => {
+        const query = 'SELECT * FROM users';
         const { rows } = await pool.query(query);
         return rows;
     });
@@ -30,7 +30,7 @@ export async function userRoutes(server: FastifyInstance) {
     
         const { uuid, email } = bodySchema.parse(request.body);
     
-        const query = 'INSERT INTO usuarios (uuid, email) VALUES ($1, $2) RETURNING *';
+        const query = 'INSERT INTO users (uuid, email) VALUES ($1, $2) RETURNING *';
         const values = [uuid, email];
     
         try {
