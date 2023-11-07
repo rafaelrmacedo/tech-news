@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react';
 import Image from 'next/image';
 import { api } from '@/lib/api';
@@ -7,16 +9,17 @@ export default function News() {
     const [email, setEmail] = useState('');
 
     const handleRegister = async () => {
-        try {
-            await api.post('/user', {
-                uuid: randomUUID,
-                email,
-            });
-            alert('Usuário cadastrado com sucesso.');
-        } catch (error) {
-            console.error('Erro ao cadastrar usuário:', error);
-            alert('Erro ao cadastrar usuário.');
-        }
+        console.log('email: ', email);
+        // try {
+        //     await api.post('/users', {
+        //         randomUUID,
+        //         email,
+        //     });
+        //     alert('Você se cadastrou com sucesso na newsletter.'); // melhorar isso caso tenha tempo
+        // } catch (error) {
+        //     console.error('Erro ao cadastrar usuário:', error);
+        //     alert('Erro ao cadastrar usuário.');
+        // }
     };
 
     const handleEmailChange = (e: any) => {

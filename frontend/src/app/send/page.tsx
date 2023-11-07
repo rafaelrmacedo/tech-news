@@ -6,7 +6,7 @@ import { api } from '@/lib/api';
 import MDEditor from '@uiw/react-md-editor';
 
 export default function SendPage() {
-    const [value, setValue] = React.useState("**Hello world!!!**");
+    const [value, setValue] = React.useState("");
 
     return (
         <div className='text-center'>
