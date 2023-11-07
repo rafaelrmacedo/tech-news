@@ -12,6 +12,7 @@
     "@types/node": "20.5.7",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
+    "@uiw/react-md-editor": "^3.24.1",
     "axios": "^1.6.0",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
