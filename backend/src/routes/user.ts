@@ -30,7 +30,7 @@ export async function userRoutes(server: FastifyInstance) {
     
         const { uuid, email } = bodySchema.parse(request.body);
     
-        const query = 'INSERT INTO users (uuid, email) VALUES ($1, $2) RETURNING *';
+        const query = 'INSERT INTO users (uuid, email) VALUES ($1, $2)';
         const values = [uuid, email];
     
         try {

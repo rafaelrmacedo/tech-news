@@ -2,24 +2,28 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { TypeAnimation  } from 'react-type-animation';
 import { api } from '@/lib/api';
 import { randomUUID } from 'crypto';
+import { useRouter } from 'next/navigation';
 
 export default function News() {
     const [email, setEmail] = useState('');
 
+    const router = useRouter();
+
     const handleRegister = async () => {
         console.log('email: ', email);
-        // try {
-        //     await api.post('/users', {
-        //         randomUUID,
-        //         email,
-        //     });
-        //     alert('Você se cadastrou com sucesso na newsletter.'); // melhorar isso caso tenha tempo
-        // } catch (error) {
-        //     console.error('Erro ao cadastrar usuário:', error);
-        //     alert('Erro ao cadastrar usuário.');
-        // }
+        try {
+            await api.post('/user', {
+                randomUUID,
+                email,
+            });
+            router.push('/thanks')
+        } catch (error) {
+            console.error('Erro ao cadastrar usuário:', error);
+            alert('Erro ao cadastrar seu e-mail.');
+        }
     };
 
     const handleEmailChange = (e: any) => {
@@ -40,7 +44,24 @@ export default function News() {
                     />
                 </div>
                 <div className='mx-auto text-white text-2xl md:text-4xl mb-8'>
-                    Notícias de tecnologia para todos os dias no seu e-mail.
+                <div className='text-white text-center'>
+                <TypeAnimation
+                    sequence={[
+                        '',
+                        500, // Tempo de espera antes de iniciar a animação
+                        'Noticias de tecnologia',
+                        1000,
+                        'Para quem não tem tempo de ler notícias',
+                        1000, 
+                        'Todos os dias no seu e-mail',
+                        1000,
+                    ]}
+                    wrapper="span"
+                    speed={10}
+                    repeat={Infinity}
+                    className='xl:text-5xl md:text-4xl sm:text-3xl text-2xl'
+                        />
+                </div>
                 </div>
                 <input
                     type="text"

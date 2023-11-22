@@ -15,8 +15,8 @@ server.register(cors, {
 
 server
   .listen({
-    port: 3333,
+    port: 3334,
   })
   .then(() => {
-    console.log('HTTP server running on port http://localhost:3333')
+    console.log('HTTP server running on port http://localhost:3334')
   })
