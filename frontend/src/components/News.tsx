@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { TypeAnimation  } from 'react-type-animation';
 import { api } from '@/lib/api';
-import { randomUUID } from 'crypto';
 import { useRouter } from 'next/navigation';
 
 export default function News() {
@@ -12,11 +11,10 @@ export default function News() {
 
     const router = useRouter();
 
-    const handleRegister = async () => {
-        console.log('email: ', email);
+    async function handleRegister() {
         try {
-            await api.post('/user', {
-                randomUUID,
+            await api.post('/users-post', {
+                uuid: crypto.randomUUID(),
                 email,
             });
             router.push('/thanks')

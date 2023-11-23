@@ -12,7 +12,7 @@ export default function Thanks() {
                     className='m-auto mb-12'
                     width={200}
                     height={200}
-                    src='/verified.png'
+                    src='/verified-2-svg.svg'
                 />
                 <span className='m-auto text-6xl text-white'>
                     Obrigado por se inscrever.

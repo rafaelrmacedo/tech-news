@@ -20,11 +20,14 @@ export default function databaseCRUD() {
             <div className='block text-center font-bold text-white'>
                 <div className='mt-10'>
                     <h3 className='text-xl font-bold mb-4'>Todos os emails já cadastrados</h3>
-                    <ul className=''>
+                    <ul className='list-none py-8 px-[20vh]'>
                         {Array.isArray(users) && users.map((user, index) => (
-                            <li key={index} className='mb-2'>{user.email}</li>
+                            <li key={index} className='mb-2 p-2 border rounded-md hover:bg-gray-100 transition-colors'>
+                            <span className='text-blue-500 font-bold'>{user.email}</span>
+                            </li>
                         ))}
                     </ul>
+                    <span>Quantidade de e-mails cadastrados: {users.length}</span>
                 </div>
             </div>
         </>
