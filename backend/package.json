@@ -28,6 +28,7 @@
     "fastify": "^4.22.2",
     "fastify-static": "^4.7.0",
     "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.9.7",
     "pg": "^8.11.3",
     "zod": "^3.21.4"
   }

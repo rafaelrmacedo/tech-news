@@ -1,6 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { z } from 'zod'
 import { Pool } from 'pg';
+import { log } from "console";
 
 let pool: Pool;
 try {
@@ -22,23 +23,32 @@ export async function userRoutes(server: FastifyInstance) {
         return rows;
     });
 
-    server.post('/user', async (request, reply) => {
+    server.post('/users-post', async (request, reply) => {
+        log(request.body);
         const bodySchema = z.object({
-            uuid: z.string(),
+            uuid: z.string().uuid(),
             email: z.string().email(),
         });
+
+        log(bodySchema.parse(request.body));
     
         const { uuid, email } = bodySchema.parse(request.body);
+
+        log(uuid);
+        log(email);
     
-        const query = 'INSERT INTO users (uuid, email) VALUES ($1, $2)';
+        const query = 'INSERT INTO users (id, email) VALUES ($1, $2)';
         const values = [uuid, email];
+
+        log(query);
+        log(values);
     
         try {
             const { rows } = await pool.query(query, values);
             reply.status(200).send('Usuário cadastrado com sucesso.');
         } catch (error) {
-            console.error('Erro ao cadastrar usuário:', error);
-            reply.status(500).send('Erro ao cadastrar usuário.');
+            log(error);
+            reply.status(500).send('Internal Server Error' + error);
         }
     });
     
