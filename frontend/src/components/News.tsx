@@ -46,7 +46,7 @@ export default function News() {
                 <TypeAnimation
                     sequence={[
                         '',
-                        500, // Tempo de espera antes de iniciar a animação
+                        500,
                         'Noticias de tecnologia',
                         1000,
                         'Para quem não tem tempo de ler notícias',

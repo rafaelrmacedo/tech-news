@@ -20,7 +20,7 @@ export async function emailRoutes(server: FastifyInstance) {
         const content = request.body;
 
         const transporter = nodemailer.createTransport({
-            service: 'Hotmail',
+            service: 'Outlook',
             auth: {
                 user: process.env.EMAIL?.toString(),
                 pass: process.env.PASSWORD?.toString(), 

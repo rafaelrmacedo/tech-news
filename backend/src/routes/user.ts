@@ -52,29 +52,29 @@ export async function userRoutes(server: FastifyInstance) {
         }
     });
     
-    // server.put('/user/:uuid', async (request, reply) => {
-    //     const paramsSchema = z.object({
-    //         uuid: z.string(),
-    //     });
+    server.put('/user/:uuid', async (request, reply) => {
+        const paramsSchema = z.object({
+            uuid: z.string(),
+        });
 
-    //     const { uuid } = paramsSchema.parse(request.params);
+        const { uuid } = paramsSchema.parse(request.params);
 
-    //     const bodySchema = z.object({
-    //         email: z.string().email(),
-    //     });
+        const bodySchema = z.object({
+            email: z.string().email(),
+        });
 
-    //     const { email } = bodySchema.parse(request.body);
+        const { email } = bodySchema.parse(request.body);
 
-    //     const query = 'UPDATE usuarios SET email = $1 WHERE uuid = $2 RETURNING *';
-    //     const values = [email, uuid];
-    //     const { rows } = await pool.query(query, values);
+        const query = 'UPDATE usuarios SET email = $1 WHERE uuid = $2 RETURNING *';
+        const values = [email, uuid];
+        const { rows } = await pool.query(query, values);
 
-    //     if (rows.length === 0) {
-    //         return reply.status(404).send();
-    //     }
+        if (rows.length === 0) {
+            return reply.status(404).send();
+        }
 
-    //     return rows[0];
-    // });
+        return rows[0];
+    });
 
     server.delete('/user/:email', async (request, reply) => {
         const paramsSchema = z.object({

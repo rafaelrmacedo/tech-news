@@ -14,7 +14,7 @@ export default function SendPage() {
                 content: value
             });
             alert('Emails sent successfully!');
-        } catch (error) {
+        } catch (error) {   
             console.error('Error sending emails:', error);
             alert('Error sending emails.');
         }

@@ -1,8 +1,0 @@
-POST /users-post HTTP/1.1
-Host: http://localhost:3334/
-Content-Type: application/json
-
-{
-  "uuid": "41ecffeb-edbd-4a28-94fe-46fd1ab89ae8",
-  "email": "johndoe@example.com"
-}
